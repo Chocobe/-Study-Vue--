@@ -11,7 +11,8 @@
 
 <body>
   <div id="app">
-    {{ person.name }} {{ person.age }}
+    <p>nextYear() : {{ nextYear("안녕하세요") }}</p>
+    <p>otherMethod() : {{ otherMethod("할로") }}</p>
   </div>
 
   <script>
@@ -22,6 +23,14 @@
         person: {
           name: '코지코더',
           age: 34
+        }
+      },
+      methods: {
+        nextYear: function(greeting) {
+          return `${greeting}! ${this.person.name} (은)는 내년에 ${this.person.age + 1}살 입니다.`;
+        },
+        otherMethod: function(greeting) {
+          return this.nextYear(greeting);
         }
       }
     });

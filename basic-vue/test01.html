@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ㅏㅐ">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue 테스트 01</title>
+  <title>뷰 테스트</title>
 </head>
-
 <body>
-  <div id="myApp">
-    <h1>Vue 테스트</h1>
+  <h1>뷰 테스트 페이지</h1>
 
-    <p>ID : {{ id }}</p>
-    <p>PWD : {{ pwd }}</p>
-    <p>Name : {{ name }}</p>
-    <p>Email : {{ email }}</p>
+  <div id="myVue">
+    <p>ID : {{ person.id }}</p>
+    <p>PWD : {{ person.pwd }}</p>
+    <p>Name: {{ person.name }}</p>
+    <p>Age: {{ person.age }}</p>
+    <p>Email: {{ person.email }}</p>
+    
+    <hr/>
+
+    <p>inNextYear(): {{ inNextYear() }}</p>
+    <p>nameAndId(): {{ nameAndId(person.name, person.id) }}</p>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript">
     new Vue({
-      el: "#myApp",
+      el: "#myVue",
       data: {
-        id: "chocobe",
-        pwd: "비번",
-        name: "영우",
-        email: "nice_10bird@naver.com"
+        person: {
+          id: "아이디~",
+          pwd: "비번~",
+          name: "이름~",
+          age: 34,
+          email: "이메일~"
+        }
+      },
+      methods: {
+        inNextYear: function() {
+          return this.person.age + 1;
+        },
+        nameAndId: function(name, id) {
+          return `${name} & ${id}`;
+        }
       }
     });
   </script>
