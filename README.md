@@ -41,4 +41,6 @@
 
 * [5. 데이터 양방향 바인딩](https://github.com/Chocobe/-Study-Vue--/blob/master/basic-vue/5_%EC%96%91%EB%B0%A9%ED%96%A5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B0%94%EC%9D%B8%EB%94%A9.md)
 
-* [6. Vue객체의 Computed 속성]()
+* [6. Vue객체의 computed 속성](https://github.com/Chocobe/-Study-Vue--/blob/master/basic-vue/6_Computed%20%EC%86%8D%EC%84%B1.md)
+
+* [7. Vue객체의 watch 속성]()

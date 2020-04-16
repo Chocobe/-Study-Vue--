@@ -11,11 +11,11 @@
 
 <body>
   <div id="app">
-    <button @click="changeMessage">Click</button>
+    {{ message }}<br/>
     
-    <p>{{ reversedMessage }}</p>
-    <p>{{ reversedMessage }}</p>
-    <p>{{ reversedMessage }}</p>
+    <button @click="changeMessage()">Click</button><br/>
+
+    {{ updated }}
   </div>
 
   <script>
@@ -24,7 +24,8 @@
       el: '#app',
       
       data: {
-        message: "Hello"
+        message: "Hello",
+        updated: "아니요"
       },
 
       methods: {
@@ -36,6 +37,15 @@
       computed: {
         reversedMessage() {
           return this.message.split("").reverse().join("");
+        }
+      },
+
+      watch: {
+        // property명과 동일한 이름으로 만들어야 한다.
+        message(newValue, oldValue) {
+          console.log(`newValue : ${newValue}, oldValue: ${oldValue}`);
+          this.updated = "네";
+          alert("변경되었습니다");
         }
       }
     });
