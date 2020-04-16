@@ -29,6 +29,21 @@
 
 ---
 
+
+## 🐫 환경설정
+
+* Node.js 버전 : ``v12.16.2``
+
+  > ``$ node -v``
+
+* NPM 버전 : ``6.14.4``
+
+  > ``$ npm -v``
+
+
+---
+
+
 ## 🐫 목록
 
 * [1. 뷰 인스턴스 생성하기](https://github.com/Chocobe/-Study-Vue--/blob/master/basic-vue/1_%EB%B7%B0%20%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.md)
