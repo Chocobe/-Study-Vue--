@@ -11,32 +11,32 @@
 
 <body>
   <div id="app">
-    <form v-on:submit.prevent="submit();">
-      <!-- <input type="text" :value="text" @keyup="updateText"><br/> -->
-      <input type="text" v-model="text"><br/>
-
-      {{ text }}<br/>
-      
-      <button type="submit">Submit</button>
-    </form>
+    <button @click="changeMessage">Click</button>
+    
+    <p>{{ reversedMessage }}</p>
+    <p>{{ reversedMessage }}</p>
+    <p>{{ reversedMessage }}</p>
   </div>
 
   <script>
     // Vue  객체생성 - <div id="app"> 내부에 Vue코드를 작성할 수 있게 되었다.
     new Vue({
       el: '#app',
+      
       data: {
-        year: 2018,
-        text: "TEXT"
+        message: "Hello"
       },
+
       methods: {
-        submit() {
-          alert("submitted");
-          console.log("Hello~~~");
-        },
-        // updateText(event) {
-        //   this.text = event.target.value;
-        // }
+        changeMessage() {
+          this.message = "코지코더";
+        }
+      },
+
+      computed: {
+        reversedMessage() {
+          return this.message.split("").reverse().join("");
+        }
       }
     });
   </script>

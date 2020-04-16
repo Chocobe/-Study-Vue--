@@ -10,36 +10,44 @@
 
 <body>
   <div id="myApp">
-    config.type 태스트: <input v-bind:type="config.numberType">
+    <p>값변경: <button @click="changeMessage();">변경</button></p>
     
     <hr/>
-
-    <h1>양방향 데이터 바인딩: 직접구현</h1>
-    입력: <input type="text" :value="inputValue" v-on:keyup="updateText"><br/>
-    <p>{{ inputValue }}</p>
+    
+    <h1>method 호출</h1>
+    <p>결과: {{ myMethod() }}</p>
+    <p>결과: {{ myMethod() }}</p>
+    <p>결과: {{ myMethod() }}</p>
 
     <hr/>
 
-    <h1>양방향 데이터 바인딩: v-model</h1>
-    입력: <input type="text" v-model="inputValue_2"><br/>
-    <p>{{ inputValue_2 }}</p>
+    <h1>computed 호출</h1>
+    <p>결과: {{ myComputed }}</p>
+    <p>결과: {{ myComputed }}</p>
+    <p>결과: {{ myComputed }}</p>
   </div>
-  
+
   <script type="text/javascript">
     new Vue({
       el: "#myApp",
 
       data: {
-        config: {
-          numberType: "number"
-        },
-        inputValue: "myText",
-        inputValue_2: "myText_2"
+        message: "Hello Vue"
       },
 
       methods: {
-        updateText(event) {
-          this.inputValue = event.target.value;
+        myMethod() {
+          return this.message.split("").reverse().join("");
+        },
+
+        changeMessage() {
+          this.message = "Chocobe";
+        }
+      },
+
+      computed: {
+        myComputed() {
+          return this.message.split("").reverse().join("");
         }
       }
     });
