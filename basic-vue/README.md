@@ -150,3 +150,87 @@
 * ``v-bind:태그의속성명="뷰객체의 프로퍼티명"`` 형식을 축약하면, ``:태그의속성명="뷰객체의 프로퍼티명"`` 형식으로 사용할 수 있다.
 
   > html 요소(Element)의 몸체(body)와 속성(attribute)에 바인딩하는 방식이 다르다.
+
+
+---
+
+
+## 🐫 (4. 이벤트)
+
+* 이벤트란, 어떤 트리거(동작)이 발생하였을 때 취할 동작을 말한다.
+
+* html의 요소(Element)의 이벤트를 설정할 때는 ``<태그 onclick="메서드();">``의 형식으로 사용했다.
+
+* Vue에서는 ``<태그 v-on:click="메서드();">``의 형식으로 사용할 수 있다.
+
+  ```javascript
+    <body>
+      <div id="myApp">
+        <button v-on:click="myMethod();">버튼</button>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+        new Vue({
+          el: "#myApp",
+
+          data: {
+            year: 2020
+          },
+
+          methods: {
+            myMethod() {
+              alert("Hello Vue~~~");
+            }
+          }
+        });
+      </script>
+    </body>
+  ```
+
+* 기존 html의 ``<form>``태그에는 ``submit``이라는 속성이 없지만, Vue에서는 ``<태그 v-on:submit="메서드();">`` 형식으로 submit동작을 script 메서드로 **대체**할 수 있다.
+
+  ```javascript
+    <body>
+      <div id="myApp">
+        <p>Year값: {{ year }}</p>
+        <button v-on:click="plus();">더하기</button>
+        <button v-on:click="minus();">빼기</button>
+
+        <form v-on:submit="mySubmit();">
+          <button type="submit">전송</button>
+        </form>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+        new Vue({
+          el: "#myApp",
+
+          data: {
+            year: 2020
+          },
+
+          methods: {
+            plus() {
+              this.year++;
+            },
+            minus() {
+              this.year--;
+            },
+            mySubmit() {
+              alert("제출합니다");
+            }
+          }
+        });
+      </script>
+    </body>
+  ```
+
+* ``<form>``태그의 ``submit``동작은 기본적으로 페이지를 리로드 하는데, 리로드를 하지 않기 위해서는 javascript의 ``event.preventDefault();``를 호출해야 한다.
+
+* Vue에서는 호출하는 이벤트에 **수식어** 를 사용하여, 이벤트에 대한 처리방식을 설정할 수 있다.
+
+  ```javascript
+    <form v-on:submit.prevent="my메서드();">
+  ```

@@ -1,56 +1,52 @@
 <!DOCTYPE html>
-<html lang="ㅏㅐ">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뷰 테스트</title>
+  <title>Document</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-  <h1>뷰 테스트 페이지</h1>
+  <div id="myApp">
+    <p>Year값: {{ year }}</p>
+    <button v-on:click="plus();">{{ buttonConfig.plusMethodName }}</button>
+    <button v-on:click="minus();">{{ buttonConfig.minusMethodName }}</button>
 
-  <div id="myVue">
-    <p>ID : {{ person.id }}</p>
-    <p>PWD : {{ person.pwd }}</p>
-    <p>Name: {{ person.name }}</p>
-    <p>Age: {{ person.age }}</p>
-    <p>Email: {{ person.email }}</p>
-    
-    <hr/>
-
-    <p>inNextYear(): {{ inNextYear() }}</p>
-    <p>nameAndId(): {{ nameAndId(person.name, person.id) }}</p>
-
-    <hr/>
-
-    <input v-bind:type="config.type" :value="config.inputValue">
+    <p>Age값: {{ age }}</p>
+    <!-- form태그에는 submit속성이 없고, Vue에서 v-on:submit=""으로 submit동작을 스크립트에서 호출할 수 있다.-->
+    <!-- 수식어를 사용하여, event.preventDefault() 또는 event.stopPropagation() 등을 설정할 수 있다.-->
+    <form v-on:submit.prevent="hello();">
+      <button type="submit">전송</button>
+    </form>
   </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script type="text/javascript">
     new Vue({
-      el: "#myVue",
+      el: "#myApp",
+      
       data: {
-        person: {
-          id: "아이디~",
-          pwd: "비번~",
-          name: "이름~",
-          age: 34,
-          email: "이메일~"
+        year: 2020,
+        buttonConfig: {
+          plusMethodName: "plus",
+          minusMethodName: "minus"
         },
-        config: {
-          type: "text",
-          inputValue: "Hello Vue"
-        }
+        age: 34
       },
+      
       methods: {
-        inNextYear: function() {
-          return this.person.age + 1;
+        plus() {
+          return this.year++;
         },
-        nameAndId: function(name, id) {
-          return `${name} & ${id}`;
+        minus() {
+          return this.year--;
+        },
+        hello() {
+          alert("Hello~~~");
         }
       }
     });
-  </script>
+  </script>  
 </body>
 </html>
