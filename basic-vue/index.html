@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뷰 기초 익히기</title>
+
+  <!-- 뷰 설치 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ person.name }} {{ person.age }}
+  </div>
+
+  <script>
+    // Vue  객체생성 - <div id="app"> 내부에 Vue코드를 작성할 수 있게 되었다.
+    new Vue({
+      el: '#app',
+      data: {
+        person: {
+          name: '코지코더',
+          age: 34
+        }
+      }
+    });
+  </script>
+</body>
+</html>
