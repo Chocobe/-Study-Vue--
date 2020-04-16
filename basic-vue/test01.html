@@ -19,6 +19,10 @@
 
     <p>inNextYear(): {{ inNextYear() }}</p>
     <p>nameAndId(): {{ nameAndId(person.name, person.id) }}</p>
+
+    <hr/>
+
+    <input v-bind:type="config.type" :value="config.inputValue">
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -32,6 +36,10 @@
           name: "이름~",
           age: 34,
           email: "이메일~"
+        },
+        config: {
+          type: "text",
+          inputValue: "Hello Vue"
         }
       },
       methods: {

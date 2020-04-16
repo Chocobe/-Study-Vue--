@@ -10,7 +10,7 @@
 ---
 
 
-## 🐫 뷰 객체 만들기 (01 뷰 인스턴스 생성하기) 
+## 🐫 뷰 객체 만들기 (1. 뷰 인스턴스 생성하기)
 
 * Vue객체는 ``<script>``에서 생성하여 사용할 수 있다.
 
@@ -36,7 +36,7 @@
   ---
 
 
-## 🐫 뷰객체의 프로퍼티
+## 🐫 뷰객체의 프로퍼티 (2. 뷰 데이터와 메서드)
 
 * 뷰 객체의 프로퍼티는 **data: { }** 에 작성할 수 있다.
 
@@ -70,7 +70,7 @@
   ---
 
 
-  ## 🐫 메서드 만들기
+  ## 🐫 메서드 만들기  (2. 뷰 데이터와 메서드)
 
 * 뷰 객체는 메서드(함수)를 가질 수 있다.
 
@@ -112,3 +112,41 @@
       </script>
     </body>
   ```
+
+
+---
+
+
+## 🐫 html 요소(Element)의 속성에 데이터 바인딩 하기 (3. 데이터 바인딩)
+
+* html 요소(Element)의 몸체(body)부분에 Vue객체 프로퍼티를 바인딩 할 때는, **{{ 프로퍼티명 }}** 형식으로 사용한다.
+
+* html 요소(Element)의 속성(attribute)에 Vue객체 프로퍼티를 바인딩 할 때는, 속성명을 **Vue방**식으로 작성해야 한다.
+  
+  ```javascript
+    <body>
+      <div id="app">
+        <input v-bind:type="type" v-bind:value="config.inputValue">
+        <input :type="type" :value="config.inputValue">
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+      <script>
+        new Vue({
+          el: "#app",
+          data: {
+            type: "text",
+            config: {
+              inputValue: "Hello Vue"
+            }
+          }
+        });
+      </script>
+    </body>
+  ```
+  
+* ``v-bind:태그의속성명="뷰객체의 프로퍼티명"`` 형식으로 사용할 수 있다.
+
+* ``v-bind:태그의속성명="뷰객체의 프로퍼티명"`` 형식을 축약하면, ``:태그의속성명="뷰객체의 프로퍼티명"`` 형식으로 사용할 수 있다.
+
+  > html 요소(Element)의 몸체(body)와 속성(attribute)에 바인딩하는 방식이 다르다.
