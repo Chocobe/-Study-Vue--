@@ -43,4 +43,4 @@
 
 * [6. Vue객체의 computed 속성](https://github.com/Chocobe/-Study-Vue--/blob/master/basic-vue/6_Computed%20%EC%86%8D%EC%84%B1.md)
 
-* [7. Vue객체의 watch 속성]()
+* [7. Vue객체의 watch 속성](https://github.com/Chocobe/-Study-Vue--/blob/master/basic-vue/7_Watch%20%EC%86%8D%EC%84%B1.md)
