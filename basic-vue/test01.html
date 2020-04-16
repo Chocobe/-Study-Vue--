@@ -3,50 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>복습 !!</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
   <div id="myApp">
-    <p>Year값: {{ year }}</p>
-    <button v-on:click="plus();">{{ buttonConfig.plusMethodName }}</button>
-    <button v-on:click="minus();">{{ buttonConfig.minusMethodName }}</button>
+    config.type 태스트: <input v-bind:type="config.numberType">
+    
+    <hr/>
 
-    <p>Age값: {{ age }}</p>
-    <!-- form태그에는 submit속성이 없고, Vue에서 v-on:submit=""으로 submit동작을 스크립트에서 호출할 수 있다.-->
-    <!-- 수식어를 사용하여, event.preventDefault() 또는 event.stopPropagation() 등을 설정할 수 있다.-->
-    <form v-on:submit.prevent="hello();">
-      <button type="submit">전송</button>
-    </form>
+    <h1>양방향 데이터 바인딩: 직접구현</h1>
+    입력: <input type="text" :value="inputValue" v-on:keyup="updateText"><br/>
+    <p>{{ inputValue }}</p>
+
+    <hr/>
+
+    <h1>양방향 데이터 바인딩: v-model</h1>
+    입력: <input type="text" v-model="inputValue_2"><br/>
+    <p>{{ inputValue_2 }}</p>
   </div>
   
   <script type="text/javascript">
     new Vue({
       el: "#myApp",
-      
+
       data: {
-        year: 2020,
-        buttonConfig: {
-          plusMethodName: "plus",
-          minusMethodName: "minus"
+        config: {
+          numberType: "number"
         },
-        age: 34
+        inputValue: "myText",
+        inputValue_2: "myText_2"
       },
-      
+
       methods: {
-        plus() {
-          return this.year++;
-        },
-        minus() {
-          return this.year--;
-        },
-        hello() {
-          alert("Hello~~~");
+        updateText(event) {
+          this.inputValue = event.target.value;
         }
       }
     });
-  </script>  
+  </script>
 </body>
 </html>
